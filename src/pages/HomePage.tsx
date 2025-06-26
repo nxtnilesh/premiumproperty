@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 const HomePage = () => {
-  const [filteredProperties, setFilteredProperties] =
+  const [filteredProperties] =
     useState<Property[]>(properties);
   const { pathname } = useLocation();
   useEffect(() => {
