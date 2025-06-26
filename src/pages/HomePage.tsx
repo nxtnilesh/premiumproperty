@@ -1,18 +1,19 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import HeroSection from "@/components/home/HeroSection";
 import FeaturedProperties from "@/components/home/FeaturedProperties";
-import { properties } from "@/data/properties";
-import { SearchFilters, Property } from "@/types/property";
-import { useLocation } from "react-router-dom";
+import HeroSection from "@/components/home/HeroSection";
 import FaqSection from "@/components/property/PropertyFaq";
 import PropertyTestimonialsSection from "@/components/property/PropertyTestimonial";
+import { properties } from "@/data/properties";
+import { Property } from "@/types/property";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const HomePage = () => {
   const [filteredProperties, setFilteredProperties] =
     useState<Property[]>(properties);
   const { pathname } = useLocation();
   useEffect(() => {
+    
     window.scrollTo(0, 0);
   }, [pathname]);
   return (

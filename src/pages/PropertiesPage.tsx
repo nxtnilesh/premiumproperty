@@ -11,7 +11,7 @@ import {
 import { properties } from "@/data/properties";
 import { Property } from "@/types/property";
 import { motion } from "framer-motion";
-import { Filter, SortAsc } from "lucide-react";
+import { Filter, Grid, List, SortAsc } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -20,7 +20,7 @@ const PropertiesPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-  const [filteredProperties, setFilteredProperties] =
+  const [filteredProperties] =
     useState<Property[]>(properties);
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [showFilters, setShowFilters] = useState(false);
@@ -86,7 +86,25 @@ const PropertiesPage = () => {
               </SelectContent>
             </Select>
 
-          
+            {/* View Mode */}
+            <div className="flex border rounded-lg">
+              <Button
+                variant={viewMode === "grid" ? "default" : "ghost"}
+                size="sm"
+                onClick={() => setViewMode("grid")}
+                className="rounded-r-none"
+              >
+                <Grid className="w-4 h-4" />
+              </Button>
+              <Button
+                variant={viewMode === "list" ? "default" : "ghost"}
+                size="sm"
+                onClick={() => setViewMode("list")}
+                className="rounded-l-none"
+              >
+                <List className="w-4 h-4" />
+              </Button>
+            </div>
           </div>
         </div>
 
