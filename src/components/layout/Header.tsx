@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
-import { Home, Menu, X, Phone, Mail } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
-import { ContactNumber } from '@/constants/company';
-import { PropertyFormModal } from '../property/PropertyFormModel';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
+import { Home, Menu, X, Phone, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { ContactNumber } from "@/constants/company";
+import { PropertyFormModal } from "../property/PropertyFormModel";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,16 +16,16 @@ const Header = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Properties', path: '/properties' },
-    { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/contact' },
-    { name: 'Insights', path: '/insight' },
+    { name: "Home", path: "/" },
+    { name: "Properties", path: "/properties" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" },
+    { name: "Insights", path: "/insight" },
   ];
 
   return (
@@ -33,8 +33,8 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        scrolled ? 'bg-white/70 backdrop-blur-sm shadow-lg' : 'bg-white'
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        scrolled ? "bg-white/70 backdrop-blur-sm shadow-lg" : "bg-white"
       )}
     >
       <div className="container mx-auto px-4">
@@ -48,7 +48,9 @@ const Header = () => {
             >
               <Home className="w-6 h-6 text-white" />
             </motion.div>
-            <span className="text-xl font-bold text-gray-900">PremiumHomes</span>
+            <span className="text-xl font-bold text-gray-900">
+              PremiumHomes
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -58,12 +60,12 @@ const Header = () => {
                 key={item.name}
                 to={item.path}
                 className={cn(
-                  'relative px-3 py-2 text-sm font-medium transition-colors',
+                  "relative px-3 py-2 text-sm font-medium transition-colors",
                   location.pathname === item.path
-                    ? 'text-blue-600'
+                    ? "text-blue-600"
                     : scrolled
-                    ? 'text-gray-900 hover:text-blue-600'
-                    : 'text-gray-900 hover:text-blue-200'
+                    ? "text-gray-900 hover:text-blue-600"
+                    : "text-gray-900 hover:text-blue-200"
                 )}
               >
                 {item.name}
@@ -81,11 +83,11 @@ const Header = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <div className="flex items-center space-x-2 text-sm">
               <Phone className="w-4 h-4" />
-              <span className={scrolled ? 'text-gray-600' : 'text-black'}>
+              <span className={scrolled ? "text-gray-600" : "text-black"}>
                 {ContactNumber}
               </span>
             </div>
-            <PropertyFormModal/>
+            <PropertyFormModal />
           </div>
 
           {/* Mobile Menu Button */}
@@ -95,7 +97,11 @@ const Header = () => {
             className="md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {isMenuOpen ? (
+              <X className="w-5 h-5" />
+            ) : (
+              <Menu className="w-5 h-5" />
+            )}
           </Button>
         </div>
       </div>
@@ -105,7 +111,7 @@ const Header = () => {
         {isMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-white border-t"
           >
@@ -117,10 +123,10 @@ const Header = () => {
                     to={item.path}
                     onClick={() => setIsMenuOpen(false)}
                     className={cn(
-                      'px-3 py-2 text-sm font-medium transition-colors',
+                      "px-3 py-2 text-sm font-medium transition-colors",
                       location.pathname === item.path
-                        ? 'text-blue-600 bg-blue-50 rounded-lg'
-                        : 'text-gray-900 hover:text-blue-600'
+                        ? "text-blue-600 bg-blue-50 rounded-lg"
+                        : "text-gray-900 hover:text-blue-600"
                     )}
                   >
                     {item.name}
@@ -135,10 +141,8 @@ const Header = () => {
                     <Mail className="w-4 h-4" />
                     <span>info@premiumhomes.com</span>
                   </div>
-                  
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 mt-2">
-                    List Property
-                  </Button>
+
+                  <PropertyFormModal />
                 </div>
               </nav>
             </div>

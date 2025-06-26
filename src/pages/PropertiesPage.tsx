@@ -11,7 +11,7 @@ import {
 import { properties } from "@/data/properties";
 import { Property } from "@/types/property";
 import { motion } from "framer-motion";
-import { Filter, Grid, List, SortAsc } from "lucide-react";
+import { Filter, SortAsc } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 

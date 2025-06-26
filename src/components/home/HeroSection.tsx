@@ -1,8 +1,7 @@
+import PropertySearch from '@/components/property/PropertySearch';
+import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { ArrowDown, Play } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import PropertySearch from '@/components/property/PropertySearch';
-import { SearchFilters } from '@/types/property';
 
 
 
