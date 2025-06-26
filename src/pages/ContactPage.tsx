@@ -178,7 +178,7 @@ const ContactPage = () => {
                           <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                           <Input
                             id="name"
-                            placeholder="John Doe"
+                            placeholder="Rahul Sharam"
                             value={formData.name}
                             onChange={(e) =>
                               handleInputChange("name", e.target.value)
@@ -195,7 +195,7 @@ const ContactPage = () => {
                           <Input
                             id="email"
                             type="email"
-                            placeholder="john@example.com"
+                            placeholder="xyz@example.com"
                             value={formData.email}
                             onChange={(e) =>
                               handleInputChange("email", e.target.value)
@@ -214,7 +214,7 @@ const ContactPage = () => {
                           <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                           <Input
                             id="phone"
-                            placeholder="(555) 123-4567"
+                            placeholder="+91 9876543210"
                             value={formData.phone}
                             onChange={(e) =>
                               handleInputChange("phone", e.target.value)
